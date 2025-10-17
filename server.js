@@ -6,6 +6,7 @@ import sequelize from "./config/db.js"; // Assuming this file exists
 import countRoutes from "./routes/countRoutes.js";
 import testimonialRoutes from "./routes/testimonialRoutes.js"; // New Import
 import packroutes from "./routes/packageRoutes.js";
+import Subscribe from "./routes/subscribeRoutes.js"
 
 
 const app = express();
@@ -33,6 +34,7 @@ app.use("/api/counts", countRoutes);
 app.use("/api/testimonials", testimonialRoutes); // New Route
 app.use('/uploads', express.static('uploads'));
 app.use("/api/packages",packroutes);
+app.use("/api/mail",Subscribe)
 
 // ✅ Start server
 const port = process.env.PORT || 5000;
