@@ -1,4 +1,39 @@
-// backend/models/Package.js
+// // backend/models/Package.js
+// import { DataTypes } from "sequelize";
+// import sequelize from "../config/db.js";
+
+// const Package = sequelize.define("Package", {
+//   category: {
+//     type: DataTypes.STRING(100),
+//     allowNull: false,
+//     comment: "Package name/title",
+//   },
+//   content: {
+//     type: DataTypes.STRING(255),
+//     allowNull: false,
+//     comment: "Package description or header",
+//   },
+//   points: {
+//     type: DataTypes.JSON, // Store array of points
+//     allowNull: false,
+//     comment: "Array of features/points for the package",
+//   },
+//   price: {
+//     type: DataTypes.STRING(50),
+//     allowNull: false,
+//     comment: "Package price",
+//   },
+//   buttonText: {
+//     type: DataTypes.STRING(50),
+//     allowNull: false,
+//     comment: "Text for the button",
+//   },
+// }, {
+//   tableName: "packages",
+//   timestamps: true,
+// });
+
+// export default Package;
 import { DataTypes } from "sequelize";
 import sequelize from "../config/db.js";
 
@@ -6,27 +41,22 @@ const Package = sequelize.define("Package", {
   category: {
     type: DataTypes.STRING(100),
     allowNull: false,
-    comment: "Package name/title",
+    comment: "Package name/title (e.g., Basic, Pro)",
   },
   content: {
     type: DataTypes.STRING(255),
     allowNull: false,
     comment: "Package description or header",
   },
-  points: {
-    type: DataTypes.JSON, // Store array of points
+  monthly: {
+    type: DataTypes.JSON,
     allowNull: false,
-    comment: "Array of features/points for the package",
+    comment: "Object containing { price, points, buttonText } for monthly",
   },
-  price: {
-    type: DataTypes.STRING(50),
+  yearly: {
+    type: DataTypes.JSON,
     allowNull: false,
-    comment: "Package price",
-  },
-  buttonText: {
-    type: DataTypes.STRING(50),
-    allowNull: false,
-    comment: "Text for the button",
+    comment: "Object containing { price, points, buttonText } for yearly",
   },
 }, {
   tableName: "packages",
