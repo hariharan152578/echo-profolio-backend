@@ -1,66 +1,108 @@
-// // backend/models/Package.js
-// import { DataTypes } from "sequelize";
-// import sequelize from "../config/db.js";
 
-// const Package = sequelize.define("Package", {
+// // import { DataTypes } from 'sequelize';
+// // import sequelize from '../config/db.js';
+
+// // const Package = sequelize.define('Package', {
+// //   category: {
+// //     type: DataTypes.STRING,
+// //     allowNull: false
+// //   },
+// //   content: {
+// //     type: DataTypes.STRING,
+// //     allowNull: false
+// //   },
+// //   monthly: {
+// //     type: DataTypes.JSON,
+// //     allowNull: false,
+// //     defaultValue: {
+// //       price: 0,
+// //       points: [],
+// //       buttonText: 'Choose Plan'
+// //     }
+// //   },
+// //   yearly: {
+// //     type: DataTypes.JSON,
+// //     allowNull: false,
+// //     defaultValue: {
+// //       price: 0,
+// //       points: [],
+// //       buttonText: 'Choose Plan'
+// //     }
+// //   }
+// // }, {
+// //   tableName: 'packages',
+// //   timestamps: true
+// // });
+
+// // export default Package;
+
+
+// import { DataTypes } from 'sequelize';
+// import sequelize from '../config/db.js';
+
+// const Package = sequelize.define('Package', {
 //   category: {
-//     type: DataTypes.STRING(100),
-//     allowNull: false,
-//     comment: "Package name/title",
+//     type: DataTypes.STRING,
+//     allowNull: false
 //   },
 //   content: {
-//     type: DataTypes.STRING(255),
-//     allowNull: false,
-//     comment: "Package description or header",
+//     type: DataTypes.STRING,
+//     allowNull: false
 //   },
-//   points: {
-//     type: DataTypes.JSON, // Store array of points
+//   monthly: {
+//     type: DataTypes.JSON,
 //     allowNull: false,
-//     comment: "Array of features/points for the package",
+//     defaultValue: {
+//       points: [],
+//       buttonText: 'Request Plan'
+//     }
 //   },
-//   price: {
-//     type: DataTypes.STRING(50),
+//   yearly: {
+//     type: DataTypes.JSON,
 //     allowNull: false,
-//     comment: "Package price",
-//   },
-//   buttonText: {
-//     type: DataTypes.STRING(50),
-//     allowNull: false,
-//     comment: "Text for the button",
-//   },
+//     defaultValue: {
+//       points: [],
+//       buttonText: 'Request Plan'
+//     }
+//   }
 // }, {
-//   tableName: "packages",
-//   timestamps: true,
+//   tableName: 'packages',
+//   timestamps: true
 // });
 
 // export default Package;
-import { DataTypes } from "sequelize";
-import sequelize from "../config/db.js";
 
-const Package = sequelize.define("Package", {
+import { DataTypes } from 'sequelize';
+import sequelize from '../config/db.js';
+
+const Package = sequelize.define('Package', {
   category: {
-    type: DataTypes.STRING(100),
-    allowNull: false,
-    comment: "Package name/title (e.g., Basic, Pro)",
+    type: DataTypes.STRING,
+    allowNull: false
   },
   content: {
-    type: DataTypes.STRING(255),
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  // NEW: Stores array of { label, type, required }
+  formFields: {
+    type: DataTypes.JSON,
     allowNull: false,
-    comment: "Package description or header",
+    defaultValue: [] 
   },
   monthly: {
     type: DataTypes.JSON,
     allowNull: false,
-    comment: "Object containing { price, points, buttonText } for monthly",
+    defaultValue: { points: [], buttonText: 'Request Plan' }
   },
   yearly: {
     type: DataTypes.JSON,
     allowNull: false,
-    comment: "Object containing { price, points, buttonText } for yearly",
-  },
+    defaultValue: { points: [], buttonText: 'Request Plan' }
+  }
 }, {
-  tableName: "packages",
-  timestamps: true,
+  tableName: 'packages',
+  timestamps: true
 });
 
 export default Package;

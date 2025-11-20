@@ -3,18 +3,18 @@ import sequelize from "../config/db.js";
 
 const Count = sequelize.define("Count", {
   icon: {
-    type: DataTypes.STRING(10),
+    type: DataTypes.STRING,
   },
   content: {
     type: DataTypes.STRING,
     allowNull: false,
   },
   prefix: {
-    type: DataTypes.STRING(10),
+    type: DataTypes.STRING,
     defaultValue: "",
   },
   suffix: {
-    type: DataTypes.STRING(10),
+    type: DataTypes.STRING,
     defaultValue: "",
   },
   limit_value: {

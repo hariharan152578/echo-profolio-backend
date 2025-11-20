@@ -29,6 +29,8 @@
 // });
 
 // export default Testimonial;
+
+
 import { DataTypes } from "sequelize";
 import sequelize from "../config/db.js";
 
